@@ -1,0 +1,26 @@
+{
+  "name": "oas_msw_storybook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "redoc:build": "redoc-cli build ./openapi.yml -o redoc-static/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/052hide/oas_msw_storybook.git"
+  },
+  "author": "052hide (hidetoshi1990@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/052hide/oas_msw_storybook/issues"
+  },
+  "homepage": "https://github.com/052hide/oas_msw_storybook#readme",
+  "devDependencies": {
+    "redoc-cli": "^0.13.17"
+  },
+  "volta": {
+    "node": "16.16.0",
+    "yarn": "1.22.19"
+  }
+}
