@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "redoc:build": "redoc-cli build ./openapi.yml -o redoc-static/index.html"
+    "redoc:build": "redoc-cli build ./openapi.yml -o redoc-static/index.html",
+    "oas:validate-examples": "openapi-examples-validator ./openapi.yml"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/052hide/oas_msw_storybook#readme",
   "devDependencies": {
+    "openapi-examples-validator": "^4.7.1",
     "redoc-cli": "^0.13.17"
   },
   "volta": {

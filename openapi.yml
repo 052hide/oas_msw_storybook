@@ -41,9 +41,9 @@ paths:
               examples:
                 '正常':
                   value:
-                    - id: '71b7bf88-4746-483d-81b1-b56f2b126f5a'
-                      name: 'いぬ'
-                      photos:
+                    id: '71b7bf88-4746-483d-81b1-b56f2b126f5a'
+                    name: 'いぬ'
+                    photos:
                       - 'xxx.png'
                       - 'yyy.png'
         '400':
