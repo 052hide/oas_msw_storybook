@@ -6,7 +6,7 @@ export const HANDLERS = {
     success: (
       example: keyof typeof schema.paths['/pets']['get']['responses']['200']['content']['application/json']['examples']
     ) => {
-      rest.get('', (_req, res, ctx) => {
+      rest.get('/pets', (_req, res, ctx) => {
         return res(
           ctx.delay(1000),
           ctx.status(200),
@@ -19,7 +19,7 @@ export const HANDLERS = {
     success: (
       example: keyof typeof schema.paths['/pets']['post']['responses']['200']['content']['application/json']['examples']
     ) => {
-      rest.get('', (_req, res, ctx) => {
+      rest.post('/pets', (_req, res, ctx) => {
         return res(
           ctx.delay(1000),
           ctx.status(200),
@@ -30,7 +30,7 @@ export const HANDLERS = {
     invalid: (
         example: keyof typeof schema.paths['/pets']['post']['responses']['400']['content']['application/json']['examples']
       ) => {
-        rest.get('', (_req, res, ctx) => {
+        rest.post('/pets', (_req, res, ctx) => {
           return res(
             ctx.delay(1000),
             ctx.status(400),
