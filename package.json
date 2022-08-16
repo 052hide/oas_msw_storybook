@@ -20,6 +20,7 @@
   "homepage": "https://github.com/052hide/oas_msw_storybook#readme",
   "devDependencies": {
     "@apidevtools/swagger-cli": "^4.0.4",
+    "@storybook/react": "^6.5.10",
     "msw": "^0.44.2",
     "openapi-examples-validator": "^4.7.1",
     "redoc-cli": "^0.13.17"
@@ -27,5 +28,8 @@
   "volta": {
     "node": "16.16.0",
     "yarn": "1.22.19"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
   }
 }
