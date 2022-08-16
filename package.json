@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "redoc:build": "redoc-cli build ./openapi.yml -o redoc-static/index.html",
-    "oas:validate-examples": "openapi-examples-validator ./openapi.yml"
+    "oas:validate-examples": "openapi-examples-validator ./openapi.yml",
+    "oas:bundle-json": "swagger-cli -r -t json -o ./openapi.json bundle ./openapi.yml"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,8 @@
   },
   "homepage": "https://github.com/052hide/oas_msw_storybook#readme",
   "devDependencies": {
+    "@apidevtools/swagger-cli": "^4.0.4",
+    "msw": "^0.44.2",
     "openapi-examples-validator": "^4.7.1",
     "redoc-cli": "^0.13.17"
   },
