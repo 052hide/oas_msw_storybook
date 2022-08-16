@@ -1,0 +1,263 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Sample",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/pets": {
+      "get": {
+        "description": "fetch array of pets",
+        "operationId": "fetchPets",
+        "responses": {
+          "200": {
+            "description": "pets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "name"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "photos": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "0件": {
+                    "value": []
+                  },
+                  "複数件": {
+                    "value": [
+                      {
+                        "id": "71b7bf88-4746-483d-81b1-b56f2b126f5a",
+                        "name": "いぬ",
+                        "photos": [
+                          "xxx.png",
+                          "yyy.png"
+                        ]
+                      },
+                      {
+                        "id": "3ddcea71-4a34-492c-b460-7a4d2b687931",
+                        "name": "ねこ"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Add a new pet to the store",
+        "operationId": "addPet",
+        "responses": {
+          "200": {
+            "description": "pet",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "photos": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "正常": {
+                    "value": {
+                      "id": "71b7bf88-4746-483d-81b1-b56f2b126f5a",
+                      "name": "いぬ",
+                      "photos": [
+                        "xxx.png",
+                        "yyy.png"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "code",
+                    "message"
+                  ],
+                  "properties": {
+                    "code": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "key",
+                          "code",
+                          "message"
+                        ],
+                        "properties": {
+                          "key": {
+                            "type": "string"
+                          },
+                          "code": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "フィールドが特定できないエラー": {
+                    "value": {
+                      "code": "XXXXX",
+                      "message": "入力項目に誤りがあります"
+                    }
+                  },
+                  "単数フィールドエラー": {
+                    "value": {
+                      "code": "XXXXX",
+                      "message": "入力項目に誤りがあります",
+                      "fields": [
+                        {
+                          "key": "name",
+                          "code": "YYYY",
+                          "message": "名称は必須です"
+                        }
+                      ]
+                    }
+                  },
+                  "複数フィールドエラー": {
+                    "value": {
+                      "code": "XXXXX",
+                      "message": "入力項目に誤りがあります",
+                      "fields": [
+                        {
+                          "key": "name",
+                          "code": "YYYY",
+                          "message": "名称は必須です"
+                        },
+                        {
+                          "key": "photos",
+                          "code": "ZZZZ",
+                          "message": "写真は100件までしか登録できません"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "InvalidInputError": {
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "key",
+                "code",
+                "message"
+              ],
+              "properties": {
+                "key": {
+                  "type": "string"
+                },
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Pet": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "photos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
